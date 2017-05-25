@@ -1,0 +1,41 @@
+/**
+ * Created by Ольга on 11.03.2017.
+ */
+
+import java.io.*;
+import java.util.*;
+
+public class education {
+    public String gpa_name(String gpa) {
+        String name = new String();
+        String line;
+
+
+try {
+    FileReader fr = new FileReader("D:/education.txt");
+    BufferedReader in = new BufferedReader(fr);
+    while ((line=in.readLine())!=null){
+        String[] str = line.split(" ");
+        if (str[0].equals(gpa)){ name=str[1]; break;}
+        else 	name="NO SUCH STUDENTS";
+    }
+}
+catch(IOException e){e.printStackTrace();}
+        return name;
+    }
+    public String name_gpa(String name){
+        String gpa= new String();
+        String line;
+        try{
+            FileReader fr = new FileReader("D:/educations.txt");
+            BufferedReader in = new BufferedReader(fr);
+            while ((line=in.readLine())!=null){
+                String[] str = line.split(" ");
+                if (str[1].equals(name)){ gpa=str[0]; break;}else
+                    gpa="NO SUCH NAME";
+            }
+        }catch(IOException e){e.printStackTrace();}
+        return gpa;
+    }
+}
+
